@@ -1,0 +1,12 @@
+{
+  "name": "green-space",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GreenSpace local website and Google Places proxy",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}

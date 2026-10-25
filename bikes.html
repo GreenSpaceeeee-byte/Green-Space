@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xe đạp công cộng | Green Space</title>
+    <meta name="description" content="Tìm trạm xe đạp và điểm di chuyển xanh quanh vị trí của bạn." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /><link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="bikes" data-default-mode="bike">
+    <div class="page-shell">
+      <header class="topbar"><div class="container nav-wrap"><a class="brand" href="index.html" aria-label="Green Space - Trang chủ"><div class="brand-mark" aria-hidden="true"><svg class="brand-globe" viewBox="0 0 44 44" focusable="false"><circle cx="22" cy="22" r="18" fill="#bcebd0" stroke="#fff" stroke-width="2"/><path d="m10 14 5-5 6 2 1 4-4 2-1 5-4 1-4-4zm17-5 5 2 3 5-4 2-3-3-4 1-2-4zm-2 15 5-2 6 3-1 6-4 1-3 5-5-3 2-5-3-2z" fill="#438b60"/><circle cx="17" cy="23" r="1.45" fill="#173a2a"/><circle cx="27" cy="23" r="1.45" fill="#173a2a"/><ellipse cx="14.5" cy="27" rx="2" ry="1.2" fill="#ef9e98"/><ellipse cx="29.5" cy="27" rx="2" ry="1.2" fill="#ef9e98"/><path d="M18.5 28c1.9 2.6 5.1 2.6 7 0" fill="none" stroke="#173a2a" stroke-linecap="round" stroke-width="1.7"/></svg></div><div><span class="brand-name">Green Space</span><small>Quận 1 &amp; Quận 3</small></div></a><nav class="main-nav" aria-label="Menu chính"><a href="index.html">Trang chủ</a><a href="parks.html">Công viên xanh</a><a href="recycling.html">Điểm thu gom pin</a><a href="tools.html">Công cụ xanh</a><a href="bikes.html" aria-current="page">Xe đạp công cộng</a></nav><a class="nav-cta" href="tools.html">Mở radar</a></div></header>
+      <main>
+        <section class="page-intro"><div class="container"><p class="eyebrow">Xe đạp công cộng</p><h1>Di chuyển xanh, tiết kiệm và nhẹ nhàng</h1><p>Tìm điểm thuê/đỗ xe đạp trong bán kính đã chọn. Kết quả được truy vấn từ OpenStreetMap khi tìm kiếm; đây là dữ liệu cộng đồng, không xác nhận trạm đang mở hoặc còn xe. Chỉ đường sẽ mở trong Google Maps.</p></div></section>
+        <section class="section"><div class="container split-layout">
+          <div class="bike-guide-copy"><p class="eyebrow">Di chuyển linh hoạt</p><h2>Đạp xe cho những chặng đường ngắn</h2><ul class="feature-list"><li>Kiểm tra trạm xe và khoảng cách trước khi khởi hành</li><li>Cho phép định vị để nhận kết quả quanh vị trí hiện tại</li><li>Thông tin trạm và tình trạng hoạt động phụ thuộc dữ liệu bản đồ cộng đồng</li></ul><a class="primary-btn bike-route-quick-link" href="#bikeRoutes">Xem vòng đạp gợi ý</a></div>
+          <article class="tool-panel radar-panel"><div class="tool-heading radar-heading"><span class="tool-icon" aria-hidden="true">🚲</span><div><h3>Trạm xe đạp quanh bạn</h3><p>Ưu tiên điểm thuê và bãi đỗ xe đạp.</p></div><button id="refreshPlacesBtn" class="location-button" type="button">Cập nhật kết quả</button><button id="locateMeBtn" class="location-button" type="button">Định vị lại</button></div>
+            <div class="radius-control"><label for="radarRadius">Bán kính <strong id="radiusValue">5 km</strong></label><input id="radarRadius" type="range" min="500" max="20000" step="500" value="5000" /></div>
+            <div id="radarMap" class="radar-map" role="application" aria-label="Bản đồ trạm xe đạp quanh vị trí của bạn"><p class="map-fallback">Đang xác định vị trí…</p></div><p id="radarStatus" class="radar-status" aria-live="polite">Đang xác định vị trí của bạn…</p><ul id="radarResults" class="radar-results" aria-live="polite"></ul><p class="radar-note">OpenStreetMap được truy vấn khi tìm kiếm. Ngày đồng bộ là thời điểm dữ liệu bản đồ, không phải trạng thái trực tiếp của trạm. Tình trạng còn xe/chỗ trống cần API chính thức từ đơn vị vận hành.</p>
+          </article>
+        </div></section>
+        <section class="section bike-route-section" aria-labelledby="bikeRoutesTitle">
+          <div class="container">
+            <div class="section-heading">
+              <p class="eyebrow">Hành trình gợi ý</p>
+              <h2 id="bikeRoutesTitle">Khám phá thành phố bằng xe đạp</h2>
+              <p class="section-copy">Chọn khu vực để xem các vòng đạp xe qua công viên và điểm tham quan.</p>
+            </div>
+            <div class="bike-route-controls">
+              <div class="bike-route-districts" role="group" aria-label="Chọn quận">
+                <button class="bike-route-district is-selected" type="button" data-bike-route-district="1" aria-pressed="true">Quận 1</button>
+                <button class="bike-route-district" type="button" data-bike-route-district="3" aria-pressed="false">Quận 3</button>
+              </div>
+              <label class="bike-route-start-option"><input id="useNearestRental" type="checkbox" checked /> Ưu tiên trạm thuê gần điểm bắt đầu</label>
+            </div>
+            <div id="bikeRoutes" class="bike-route-grid" aria-live="polite"></div>
+            <p class="bike-route-note">Lộ trình mở bằng Google Maps ở chế độ xe đạp. Đường đi và khả năng hỗ trợ xe đạp tùy khu vực; hãy kiểm tra biển báo, đường cấm và điều kiện thực tế trước khi xuất phát. Trạm thuê lấy từ OpenStreetMap, không xác nhận còn xe.</p>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><div class="container footer-wrap"><p>© 2026 Green Space • Quận 1 &amp; Quận 3, TP.HCM</p><a href="index.html">Về trang chủ</a></div></footer>
+    </div>
+    <div id="chatWidget" class="chat-widget"><button id="openChatBtn" class="chat-launcher" type="button" aria-controls="chatbot" aria-expanded="false"><span class="launcher-avatar" aria-hidden="true"><svg class="chat-earth" viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="32" r="27" fill="#bcebd0" stroke="#fff" stroke-width="2"/><path d="m13 18 8-7 8 2 3 6-6 4-2 7-7 1-6-7zm27-7 8 3 7 8-5 5-7-2-5-6zm-19 37 5-8 8-4 5 3 2 9-7 10-8-2zm22-6 8-5 8 4-2 9-7 2z" fill="#438b60"/><circle cx="23" cy="33" r="2.2" fill="#173a2a"/><circle cx="41" cy="33" r="2.2" fill="#173a2a"/><ellipse cx="19" cy="39" rx="3" ry="1.7" fill="#ef9e98"/><ellipse cx="45" cy="39" rx="3" ry="1.7" fill="#ef9e98"/><path d="M26 41c3.2 4.2 8.8 4.2 12 0" fill="none" stroke="#173a2a" stroke-linecap="round" stroke-width="2.4"/></svg></span><span>Greenie AI</span><span class="launcher-online" aria-hidden="true"></span></button><section id="chatbot" class="chatbot-panel chat-window" aria-label="Trò chuyện với Greenie AI" aria-live="polite"><div class="chatbot-header"><div class="avatar-wrap"><div class="avatar"><svg class="chat-earth" viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="32" r="27" fill="#bcebd0" stroke="#fff" stroke-width="2"/><path d="m13 18 8-7 8 2 3 6-6 4-2 7-7 1-6-7zm27-7 8 3 7 8-5 5-7-2-5-6zm-19 37 5-8 8-4 5 3 2 9-7 10-8-2zm22-6 8-5 8 4-2 9-7 2z" fill="#438b60"/><circle cx="23" cy="33" r="2.2" fill="#173a2a"/><circle cx="41" cy="33" r="2.2" fill="#173a2a"/><ellipse cx="19" cy="39" rx="3" ry="1.7" fill="#ef9e98"/><ellipse cx="45" cy="39" rx="3" ry="1.7" fill="#ef9e98"/><path d="M26 41c3.2 4.2 8.8 4.2 12 0" fill="none" stroke="#173a2a" stroke-linecap="round" stroke-width="2.4"/></svg></div><span class="online-dot"></span></div><div class="chatbot-identity"><strong>Greenie AI</strong><small>Trợ lý không gian xanh</small></div><div class="chat-controls"><button id="minimizeChatBtn" type="button" aria-label="Thu nhỏ Greenie AI" title="Thu nhỏ">−</button><button id="closeChatBtn" type="button" aria-label="Đóng Greenie AI" title="Đóng">×</button></div></div><div class="chat-messages" id="chatMessages"><div class="message bot">Xin chào! Tôi là Greenie AI. Bạn muốn tìm công viên, điểm thu gom pin hay tuyến xe đạp gần đây?</div></div><div class="chat-input-box"><input id="chatInput" type="text" placeholder="Nhập câu hỏi của bạn..." aria-label="Nhập câu hỏi" /><button id="sendBtn" aria-label="Gửi câu hỏi">Gửi</button></div></section></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script><script src="script.js?v=chat-quick-questions-v2-20261025" defer></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thu gom pin &amp; phế thải điện tử | Green Space</title>
+    <meta name="description" content="Tìm cơ sở tái chế, bãi phế liệu và điểm thu gom chất thải quanh bạn; liên hệ trước để xác nhận có nhận pin hoặc rác điện tử." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="recycling">
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="container nav-wrap">
+          <a class="brand" href="index.html" aria-label="Green Space - Trang chủ"><div class="brand-mark" aria-hidden="true"><svg class="brand-globe" viewBox="0 0 44 44" focusable="false"><circle cx="22" cy="22" r="18" fill="#bcebd0" stroke="#fff" stroke-width="2"/><path d="m10 14 5-5 6 2 1 4-4 2-1 5-4 1-4-4zm17-5 5 2 3 5-4 2-3-3-4 1-2-4zm-2 15 5-2 6 3-1 6-4 1-3 5-5-3 2-5-3-2z" fill="#438b60"/><circle cx="17" cy="23" r="1.45" fill="#173a2a"/><circle cx="27" cy="23" r="1.45" fill="#173a2a"/><ellipse cx="14.5" cy="27" rx="2" ry="1.2" fill="#ef9e98"/><ellipse cx="29.5" cy="27" rx="2" ry="1.2" fill="#ef9e98"/><path d="M18.5 28c1.9 2.6 5.1 2.6 7 0" fill="none" stroke="#173a2a" stroke-linecap="round" stroke-width="1.7"/></svg></div><div><span class="brand-name">Green Space</span><small>Quận 1 &amp; Quận 3</small></div></a>
+          <nav class="main-nav" aria-label="Menu chính">
+            <a href="index.html">Trang chủ</a><a href="parks.html">Công viên xanh</a><a href="recycling.html" aria-current="page">Điểm thu gom pin</a><a href="tools.html">Công cụ xanh</a><a href="bikes.html">Xe đạp công cộng</a>
+          </nav>
+          <a class="nav-cta" href="tools.html">Khám phá</a>
+        </div>
+      </header>
+      <main>
+        <section class="page-intro"><div class="container"><p class="eyebrow">Pin · điện tử · phế liệu</p><h1>Tìm nơi thu gom và tái chế quanh bạn</h1><p>Tìm cửa hàng điện thoại, máy tính/linh kiện, nơi sửa đồ điện tử hoặc sửa xe, cơ sở tái chế và bãi phế liệu quanh vị trí hiện tại hoặc khu vực nhập tay. Vì dữ liệu bản đồ không xác nhận nơi nào nhận pin, bạn nên gọi hỏi trước khi mang pin hoặc rác điện tử tới.</p></div></section>
+        <section class="section section-alt">
+          <div class="container split-layout">
+            <div>
+              <p class="eyebrow">Phân loại an toàn</p>
+              <h2>Đừng bỏ pin vào rác sinh hoạt</h2>
+              <p class="section-copy">Pin đã qua sử dụng cần được giữ riêng và đưa đến điểm thu gom chuyên dụng. Che kín hai cực pin nếu cần bảo quản tạm thời; không tháo rời hoặc đốt pin.</p>
+              <ul class="feature-list"><li>Giữ pin khô, tránh nhiệt và va đập</li><li>Không trộn pin rò rỉ với pin còn nguyên</li><li>Kiểm tra trước với điểm nhận về loại pin được tiếp nhận</li></ul>
+            </div>
+            <div class="recycle-panel"><div class="point-box">
+              <div class="battery-heading"><div class="point-status"><span class="dot-live"></span><span id="batteryStatus">Đang chờ vị trí</span></div><button id="refreshBatteryPoints" class="battery-refresh" type="button" aria-label="Làm mới điểm thu gom pin" title="Làm mới">↻</button></div>
+              <h3>Cơ sở thu hồi pin - điện tử phế liệu gần bạn</h3>
+              <form id="batterySearchForm" class="battery-search-form">
+                <label for="batteryAreaInput">Tìm theo địa chỉ hoặc khu vực</label>
+                <div class="battery-search-controls"><input id="batteryAreaInput" type="search" placeholder="Ví dụ: Quận 1, TP.HCM" autocomplete="street-address" /><button id="batterySearchButton" type="submit">Tìm địa điểm</button></div>
+              </form>
+              <label class="manual-label" for="batteryRadius">Bán kính <strong id="batteryRadiusValue">5 km</strong></label>
+              <input id="batteryRadius" type="range" min="500" max="50000" step="500" value="5000" />
+              <ul id="batteryPoints" class="battery-points" aria-live="polite"><li>Cho phép định vị hoặc nhập khu vực để tìm điểm xung quanh.</li></ul>
+              <p id="batteryUpdated" class="battery-updated">Giờ hoạt động lấy từ Google Places hoặc OpenStreetMap khi cập nhật kết quả. Nếu thiếu dữ liệu giờ, hãy chọn “Kiểm tra giờ trên Maps” hoặc gọi cơ sở trước khi tới; giờ mở cửa không xác nhận nơi đó có nhận pin hay rác điện tử.</p>
+            </div></div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><div class="container footer-wrap"><p>© 2026 Green Space • Quận 1 &amp; Quận 3, TP.HCM</p><a href="index.html">Về trang chủ</a></div></footer>
+    </div>
+    <div id="chatWidget" class="chat-widget"><button id="openChatBtn" class="chat-launcher" type="button" aria-controls="chatbot" aria-expanded="false"><span class="launcher-avatar" aria-hidden="true"><svg class="chat-earth" viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="32" r="27" fill="#bcebd0" stroke="#fff" stroke-width="2"/><path d="m13 18 8-7 8 2 3 6-6 4-2 7-7 1-6-7zm27-7 8 3 7 8-5 5-7-2-5-6zm-19 37 5-8 8-4 5 3 2 9-7 10-8-2zm22-6 8-5 8 4-2 9-7 2z" fill="#438b60"/><circle cx="23" cy="33" r="2.2" fill="#173a2a"/><circle cx="41" cy="33" r="2.2" fill="#173a2a"/><ellipse cx="19" cy="39" rx="3" ry="1.7" fill="#ef9e98"/><ellipse cx="45" cy="39" rx="3" ry="1.7" fill="#ef9e98"/><path d="M26 41c3.2 4.2 8.8 4.2 12 0" fill="none" stroke="#173a2a" stroke-linecap="round" stroke-width="2.4"/></svg></span><span>Greenie AI</span><span class="launcher-online" aria-hidden="true"></span></button><section id="chatbot" class="chatbot-panel chat-window" aria-label="Trò chuyện với Greenie AI" aria-live="polite"><div class="chatbot-header"><div class="avatar-wrap"><div class="avatar"><svg class="chat-earth" viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="32" r="27" fill="#bcebd0" stroke="#fff" stroke-width="2"/><path d="m13 18 8-7 8 2 3 6-6 4-2 7-7 1-6-7zm27-7 8 3 7 8-5 5-7-2-5-6zm-19 37 5-8 8-4 5 3 2 9-7 10-8-2zm22-6 8-5 8 4-2 9-7 2z" fill="#438b60"/><circle cx="23" cy="33" r="2.2" fill="#173a2a"/><circle cx="41" cy="33" r="2.2" fill="#173a2a"/><ellipse cx="19" cy="39" rx="3" ry="1.7" fill="#ef9e98"/><ellipse cx="45" cy="39" rx="3" ry="1.7" fill="#ef9e98"/><path d="M26 41c3.2 4.2 8.8 4.2 12 0" fill="none" stroke="#173a2a" stroke-linecap="round" stroke-width="2.4"/></svg></div><span class="online-dot"></span></div><div class="chatbot-identity"><strong>Greenie AI</strong><small>Trợ lý không gian xanh</small></div><div class="chat-controls"><button id="minimizeChatBtn" type="button" aria-label="Thu nhỏ Greenie AI" title="Thu nhỏ">−</button><button id="closeChatBtn" type="button" aria-label="Đóng Greenie AI" title="Đóng">×</button></div></div><div class="chat-messages" id="chatMessages"><div class="message bot">Xin chào! Tôi là Greenie AI. Bạn muốn tìm công viên, điểm thu gom pin hay tuyến xe đạp gần đây?</div></div><div class="chat-input-box"><input id="chatInput" type="text" placeholder="Nhập câu hỏi của bạn..." aria-label="Nhập câu hỏi" /><button id="sendBtn" aria-label="Gửi câu hỏi">Gửi</button></div></section></div>
+    <script src="https://openingh.openstreetmap.de/build/opening_hours+deps.min.js" defer></script><script src="script.js?v=chat-quick-questions-v2-20261025" defer></script>
+  </body>
+</html>
